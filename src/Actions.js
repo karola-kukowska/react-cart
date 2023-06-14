@@ -1,0 +1,10 @@
+const actions = {
+  CLEAR_CART: "CLEAR_CART",
+  REMOVE: "REMOVE",
+  INCREASE: "INCREASE",
+  DECREASE: "DECREASE",
+  LOADING: "LOADING",
+  DISPLAY_ITEMS: "DISPLAY_ITEMS",
+};
+
+export default actions;
