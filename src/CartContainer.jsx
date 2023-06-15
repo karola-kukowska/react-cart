@@ -2,8 +2,16 @@ import CartItem from "./CartItem";
 import { useGlobalContext } from "./Context";
 
 const CartContainer = () => {
-  const { cart, clearCart } = useGlobalContext();
+  const { cart, clearCart, totalPrice, loading } = useGlobalContext();
   const cartArray = Array.from(cart.entries());
+
+  if (loading) {
+    return (
+      <section>
+        <div className="loading" style={{ marginTop: "8rem" }}></div>
+      </section>
+    );
+  }
 
   if (cartArray.length === 0) {
     return (
@@ -16,6 +24,7 @@ const CartContainer = () => {
       </section>
     );
   }
+
   return (
     <section className="cart">
       {/* cart header */}
@@ -34,7 +43,7 @@ const CartContainer = () => {
         <hr />
         <div>
           <h5 className="cart-total">
-            total <span>$10</span>
+            total <span>${totalPrice}</span>
           </h5>
         </div>
         <button className="btn btn-hipster" onClick={clearCart}>
